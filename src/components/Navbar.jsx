@@ -67,7 +67,7 @@ function Navbar() {
 
               <span>KONNR</span>
 
-              <small>ENTERPRISES</small>
+              ENTERPRISES
 
             </div>
 
