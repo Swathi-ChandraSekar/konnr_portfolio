@@ -448,18 +448,21 @@
         /* CHANGED: align from the top with real padding instead of
            forcing vertical centering, which could push the first
            line of the title above the visible box on short phones.
-           Extra bottom padding keeps the stack clear of the dots. */
+           Bottom padding gives the anchored button group a
+           comfortable ~20-30px gap from the hero's bottom edge. */
         justify-content: flex-start;
-        padding: 30px 18px 40px;
+        padding: 30px 18px 28px;
     }
 
-    /* CHANGED: content now fills the available overlay width
-       instead of shrink-wrapping to the widest line of text.
-       This gives the CTA and product buttons a predictable,
-       consistent width to size themselves against (see below)
-       instead of an ambiguous shrink-to-fit width. */
+    /* CHANGED: content now fills the available overlay width AND
+       height. Height:100% (the overlay has a definite height via
+       inset:0 on the hero-container) turns .hero-content into a
+       full-height flex column, which lets the product-nav group
+       below anchor itself to the bottom via margin-top:auto instead
+       of sitting immediately under the CTA. */
     .hero-content {
         width: 100%;
+        height: 100%;
     }
 
     .hero-title {
@@ -501,8 +504,16 @@
         max-width: 320px;
     }
 
+    /* CHANGED: was "margin: 20px auto 10px" (fixed gap right under
+       the CTA). margin-top:auto turns this into the flex spacer —
+       since .hero-content is now full height, this pushes the
+       divider, the "Explore Our Products" label and the button
+       group as one unit down to the bottom of the hero, leaving the
+       image visible in the space between the CTA and this group.
+       Horizontal centering (auto left/right) and the 10px gap above
+       the label are unchanged. */
     .hero-mini-divider {
-        margin: 20px auto 10px;
+        margin: auto auto 10px;
     }
 
     .hero-explore-label {
@@ -569,7 +580,10 @@
     }
 
     .hero-overlay {
-        padding: 26px 14px 34px;
+        /* CHANGED: bottom trimmed from 34px to keep the anchored
+           button group's gap from the hero's bottom edge in the
+           requested ~20-30px range at this breakpoint too. */
+        padding: 26px 14px 26px;
     }
 }
 
@@ -577,7 +591,9 @@
 @media (max-width:360px) {
 
     .hero-overlay {
-        padding: 22px 12px 30px;
+        /* CHANGED: bottom trimmed from 30px to 22px, same reasoning
+           as the 480px tier above. */
+        padding: 22px 12px 22px;
     }
 
     .hero-description {
