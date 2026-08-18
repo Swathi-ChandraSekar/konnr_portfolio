@@ -54,6 +54,9 @@
     height: 100%;
 
     object-fit: cover;
+    /* Desktop image is a wide arrangement of products — center crop
+       keeps the main cluster visible, trimming only the outer edges
+       evenly if the container is proportionally narrower. */
     object-position: center;
 
     animation: fadeImage .8s ease;
@@ -313,85 +316,6 @@
 
 
 /* =====================================================
-   SLIDER BUTTONS
-===================================================== */
-
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 58px;
-    height: 58px;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255, 50, 50, .18);
-    backdrop-filter: blur(8px);
-
-    color: #fff;
-    cursor: pointer;
-
-    transition: .3s;
-
-    z-index: 15;
-
-    font-size: 20px;
-}
-
-.slider-btn:hover {
-    background: #ff3232;
-    transform: translateY(-50%) scale(1.08);
-}
-
-.left-btn {
-    left: 25px;
-}
-
-.right-btn {
-    right: 25px;
-}
-
-
-/* =====================================================
-   DOTS
-===================================================== */
-
-.slider-dots {
-    position: absolute;
-
-    bottom: 28px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-    gap: 12px;
-
-    z-index: 20;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-
-    border-radius: 50%;
-    border: 2px solid #fff;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.dot.active {
-    background: #ff3232;
-    border-color: #ff3232;
-    transform: scale(1.2);
-}
-
-
-/* =====================================================
    SVG BORDER
 ===================================================== */
 
@@ -454,11 +378,6 @@
     .hero-description {
         font-size: 1rem;
     }
-
-    .slider-btn {
-        width: 46px;
-        height: 46px;
-    }
 }
 
 /* --------------------------------------------------------
@@ -495,6 +414,15 @@
         padding: 80px 16px 24px;
     }
 
+    /* The supplied portrait image has a lot of plain background
+       space at the top and the product cluster sitting in the
+       lower half — bias the crop toward the bottom so the
+       products stay fully visible even if a phone's container
+       aspect ratio ends up taller/shorter than the source image. */
+    .hero-image {
+        object-position: center bottom;
+    }
+
     .hero-container {
         /* CHANGED: swapped the fixed aspect-ratio for a min-height.
            A fixed aspect-ratio combined with overflow:hidden was
@@ -506,9 +434,13 @@
            CHANGED: value now scales with viewport height via clamp()
            instead of a single fixed number, so short phones don't
            get an oversized image tail below the buttons and tall
-           phones still get a spacious, intentional composition. */
+           phones still get a spacious, intentional composition.
+           CHANGED: raised slightly (was 520/92vh/640) now that the
+           hero uses a single portrait image — a taller, narrower
+           container matches the image's natural aspect ratio, so
+           object-fit:cover needs to crop far less of it. */
         height: auto;
-        min-height: clamp(520px, 92vh, 640px);
+        min-height: clamp(560px, 96vh, 680px);
         width: 100%;
     }
 
@@ -613,10 +545,6 @@
         /* CHANGED: smaller, softer radius (was the full 50px pill)
            to visually distinguish these from the primary CTA */
         border-radius: 14px;
-    }
-
-    .slider-btn {
-        display: none;
     }
 }
 

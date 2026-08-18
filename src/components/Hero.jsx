@@ -1,29 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/hero.css";
 
 import { openWhatsAppQuotation } from "../utils/whatsapp";
 
-import hero1 from "../assets/hero1.jpeg";
-import hero2 from "../assets/hero2.jpeg";
-import hero3 from "../assets/hero3.jpeg";
-
-import hero1Mobile from "../assets/hero1-mobile.jpeg";
-import hero2Mobile from "../assets/hero2-mobile.jpeg";
-import hero3Mobile from "../assets/hero3-mobile.jpeg";
+import heroDesktop from "../assets/hero-desktop-new.jpeg";
+import heroMobile from "../assets/hero-mobile-new.png";
 
 function Hero() {
-  const slides = [
-    { desktop: hero1, mobile: hero1Mobile },
-    { desktop: hero2, mobile: hero2Mobile },
-    { desktop: hero3, mobile: hero3Mobile },
-  ];
-
-  const [current, setCurrent] = useState(0);
-
   const navigate = useNavigate();
 
   const productLinks = [
@@ -42,25 +28,6 @@ function Hero() {
       once: true,
     });
   }, []);
-
-  // Auto Slider
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  // Next Slide
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
-
-  // Previous Slide
-  const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   return (
     <section id="home" className="hero-section">
@@ -84,14 +51,16 @@ function Hero() {
           />
         </svg>
 
-        {/* Background Image */}
+        {/* Background Image — single static hero image (no carousel).
+            Portrait image on mobile, landscape image on desktop,
+            swapped via <picture>/<source> based on viewport width. */}
         <picture>
           <source
             media="(max-width: 768px)"
-            srcSet={slides[current].mobile}
+            srcSet={heroMobile}
           />
           <img
-            src={slides[current].desktop}
+            src={heroDesktop}
             alt="Hero"
             className="hero-image"
           />
@@ -150,37 +119,6 @@ function Hero() {
               ))}
             </div>
 
-          </div>
-
-          {/* Left Arrow */}
-          <button
-            className="slider-btn left-btn"
-            onClick={prevSlide}
-          >
-            <FaChevronLeft />
-          </button>
-
-          {/* Right Arrow */}
-          <button
-            className="slider-btn right-btn"
-            onClick={nextSlide}
-          >
-            <FaChevronRight />
-          </button>
-
-          {/* Dots */}
-          <div className="slider-dots">
-            {slides.map((_, index) => (
-              <span
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={
-                  current === index
-                    ? "dot active"
-                    : "dot"
-                }
-              ></span>
-            ))}
           </div>
 
         </div>
