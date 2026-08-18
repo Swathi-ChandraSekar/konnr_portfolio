@@ -498,7 +498,7 @@
         border-radius: 50px;
         font-size: .92rem;
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .hero-mini-divider {
@@ -511,40 +511,42 @@
     }
 
     /* --------------------------------------------------
-       MOBILE (<768px): 3 buttons stacked vertically.
-       Same max-width as the CTA above so the whole stack
-       (CTA + product buttons) reads as one aligned column
-       instead of two different widths.
+       MOBILE (<768px): compact "2 over 1" layout.
+       Row 1: Structural + Building side by side (2 columns).
+       Row 2: Cladding, centered at ~76% width.
+       CHANGED: was 3 full-width stacked buttons — replaced with
+       this denser grid so the button stack takes noticeably less
+       vertical space and more of the hero image stays visible
+       behind/below the content.
     -------------------------------------------------- */
     .hero-product-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         margin-top: 0;
         gap: 10px;
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
     }
 
     .hero-product-btn:nth-child(3) {
-        /* Reset the tablet-only centering override */
-        grid-column: auto;
-        justify-self: stretch;
-        width: 100%;
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 76%;
     }
 
     .hero-product-btn {
-        padding: 10px 16px;
-        font-size: clamp(.76rem, 3vw, .85rem);
-        min-height: 46px;
+        /* CHANGED: much smaller footprint than the old full-width
+           stacked buttons (min-height 46px+auto-grow -> compact
+           44px pill-ish tiles). height stays auto so a label that
+           wraps to a second line never clips. */
+        padding: 9px 10px;
+        font-size: clamp(.68rem, 2.9vw, .78rem);
+        min-height: 44px;
         height: auto;
-        /* CHANGED: was max-height:52px, which combined with longer
-           labels ("Architectural Cladding & Blocks") could clip a
-           wrapped second line. Letting height grow with content
-           keeps every label fully readable at every phone width. */
         white-space: normal;
-        line-height: 1.25;
-        /* CHANGED: smaller, softer radius (was the full 50px pill)
-           to visually distinguish these from the primary CTA */
-        border-radius: 14px;
+        line-height: 1.22;
+        /* Slightly smaller radius than the pill CTA, but still
+           clearly rounded, matching the compact card size */
+        border-radius: 12px;
     }
 }
 
@@ -584,12 +586,13 @@
 
     .hero-quote-btn,
     .hero-product-buttons {
-        max-width: 260px;
+        max-width: 280px;
     }
 
     .hero-product-btn {
-        font-size: .72rem;
-        min-height: 44px;
+        padding: 8px 8px;
+        font-size: .66rem;
+        min-height: 42px;
     }
 }
 
