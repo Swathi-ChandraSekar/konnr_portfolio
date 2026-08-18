@@ -16,7 +16,7 @@ function About() {
       <div className="container">
 
         {/* Badge */}
-        <div className="mb-3">
+        <div className="mb-3 about-badge-wrap">
           <span className="hero-badge">
             ABOUT KONNR ENTERPRISES
           </span>

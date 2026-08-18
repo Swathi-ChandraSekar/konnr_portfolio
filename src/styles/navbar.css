@@ -314,6 +314,57 @@
 }
 
 /* ==========================================
+   NARROW PHONES (<=400px)
+   Keeps the brand + toggler row from feeling
+   cramped and stops the dropdown menu's
+   min-width from ever forcing horizontal
+   overflow on 320-360px screens.
+========================================== */
+@media(max-width:400px){
+
+.navbar .container{
+
+    padding-left:14px;
+    padding-right:14px;
+
+}
+
+.navbar-logo{
+
+    width:36px;
+    height:46px;
+
+}
+
+.brand-text span{
+
+    font-size:1.05rem;
+
+}
+
+.brand-text small{
+
+    font-size:.65rem;
+    letter-spacing:1.4px;
+
+}
+
+.navbar-collapse{
+
+    padding:14px;
+
+}
+
+.dropdown-menu{
+
+    min-width:0;
+    width:100%;
+
+}
+
+}
+
+/* ==========================================
    ANIMATION
 ========================================== */
 

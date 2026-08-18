@@ -148,6 +148,29 @@
     right:-100%;
 
     border-radius:0;
+    padding:20px;
+}
+
+.faq-top h3{
+
+    font-size:1.25rem;
+
+}
+
+}
+
+@media(max-width:360px){
+
+.faq-sidebar{
+
+    padding:16px;
+
+}
+
+.faq-question{
+
+    font-size:14px;
+
 }
 
 }

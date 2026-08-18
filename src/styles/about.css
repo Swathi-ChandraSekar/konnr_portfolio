@@ -19,6 +19,26 @@
     color:#222;
 }
 
+.about-badge-wrap{
+    text-align:center;
+}
+
+/* Badge above the heading. Was used in markup with no matching
+   style (rendered as unstyled plain text) — added here so it
+   reads as an intentional pill/eyebrow label at every width. */
+.hero-badge{
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:50px;
+    background:rgba(139,30,30,.10);
+    color:var(--primary);
+    font-family:var(--font-body);
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+}
+
 /* Heading + underline wrapper: centers both as a unit so the
    underline always lines up under the heading text, matching
    the centered treatment used in the Hero section. */
@@ -246,6 +266,20 @@
 
     .offering-card svg{
         font-size:1.5rem;
+    }
+
+    .hero-badge{
+        font-size:.72rem;
+        padding:5px 14px;
+    }
+
+    .about-card{
+        padding:22px;
+    }
+
+    .about-list li{
+        font-size:.95rem;
+        gap:12px;
     }
 
 }

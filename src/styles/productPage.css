@@ -291,6 +291,11 @@
         max-width:100%;
     }
 
+    .showcase-row,
+    .showcase-row.reverse{
+        gap:28px;
+    }
+
     .showcase-content{
         margin-top:8px;
     }
