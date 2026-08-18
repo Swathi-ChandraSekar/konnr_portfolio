@@ -65,9 +65,9 @@ function Navbar() {
 
             <div className="brand-text">
 
-              <span>KONNR
+              <span>KONNR</span>
 
-              <small>  ENTERPRISES</small></span>
+              <small>  ENTERPRISES</small>
 
             </div>
 
