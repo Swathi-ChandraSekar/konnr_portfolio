@@ -1,0 +1,95 @@
+/* ==========================
+   HOME PAGE
+========================== */
+
+.home-page{
+    width:100%;
+    overflow-x:hidden;
+}
+
+/* Space below fixed navbar */
+
+.home-page main{
+    padding-top:80px;
+}
+
+/* Every section */
+
+.home-page section{
+    position:relative;
+    scroll-margin-top:90px;
+}
+
+/* Consistent section spacing */
+
+.home-page section:not(:first-child){
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+/* Container improvements */
+
+.home-page .container{
+    position:relative;
+    z-index:2;
+}
+
+/* Smooth animations */
+
+.home-page *{
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
+
+/* Selection */
+
+.home-page ::selection{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* Images */
+
+.home-page img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Links */
+
+.home-page a{
+    text-decoration:none;
+}
+
+/* Buttons */
+
+.home-page .btn{
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.home-page .btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Responsive */
+
+@media (max-width:991px){
+
+    .home-page main{
+        padding-top:75px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .home-page main{
+        padding-top:70px;
+    }
+
+}

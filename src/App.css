@@ -1,0 +1,28 @@
+:root{
+ --primary:#8B1E1E;
+ --primary-dark:#731919;
+
+ --dark-bg:#0d1117;
+ --dark-card:#161b22;
+
+ --light-bg:#f8f9fa;
+ --light-card:#ffffff;
+
+ --text-light:#f8f9fa;
+ --text-dark:#222;
+}
+
+body{
+ margin:0;
+ transition:.3s;
+}
+
+.dark-theme{
+ background:var(--dark-bg);
+ color:var(--text-light);
+}
+
+.light-theme{
+ background:var(--light-bg);
+ color:var(--text-dark);
+}

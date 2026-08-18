@@ -1,0 +1,635 @@
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 20px 40px;
+    transition: background 0.35s ease;
+}
+
+.hero-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 650px;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: var(--card-bg);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(255, 40, 40, 0.18);
+
+    transition: background .35s ease, box-shadow .35s ease;
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-container picture {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    animation: fadeImage .8s ease;
+}
+
+@keyframes fadeImage {
+    from {
+        opacity: .35;
+        transform: scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: var(--hero-overlay);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+    /* CHANGED: slightly tighter than before (was 40px) so a
+       touch more of the background image is visible around
+       the content on larger screens too */
+    padding: 32px;
+
+    z-index: 5;
+
+    transition: background .35s ease;
+}
+
+.hero-content {
+    max-width: 760px;
+    /* CHANGED: vertically centers naturally within the flex
+       overlay; explicit flex column + gap-free margins below
+       give consistent, balanced whitespace between elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.accent-text {
+    color: #ff3b3b;
+}
+
+.hero-line {
+    width: 100px;
+    height: 4px;
+    margin: 25px auto;
+    background: #ff3b3b;
+    border-radius: 4px;
+}
+
+.hero-description {
+    color: #f3f3f3;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    /* CHANGED: adds clear separation before the primary
+       CTA so the hierarchy (title -> desc -> CTA) reads cleanly */
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   MINI DIVIDER + "EXPLORE OUR PRODUCTS" LABEL
+   Sits between the primary CTA and the secondary product
+   buttons so the two calls-to-action feel visually distinct.
+===================================================== */
+
+.hero-mini-divider {
+    width: 46px;
+    height: 2px;
+    margin: 28px auto 14px;
+    background: rgba(255, 255, 255, .35);
+    border-radius: 2px;
+}
+
+.hero-explore-label {
+    display: block;
+
+    color: rgba(255, 255, 255, .8);
+
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   HERO PRODUCT BUTTONS
+   (CHANGED: switched from flex-wrap to CSS grid so we can
+   precisely control the 3 / 2+1 / 1x3 layouts at each
+   breakpoint without relying on wrapping order. Grid also
+   guarantees equal width + equal height "for free" via
+   the fr track sizing, no JS or extra markup needed.)
+===================================================== */
+
+.hero-product-buttons {
+    display: grid;
+    /* Desktop default: 3 equal-width columns, single row */
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+
+    /* CHANGED: buttons now sit directly under the "Explore Our
+       Products" label (which already carries its own bottom
+       margin), so no extra top margin is needed here */
+    margin-top: 0;
+
+    /* Keeps the row from stretching edge-to-edge on very wide heroes */
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-product-btn {
+    /* CHANGED: was inline-block; grid item now stretches to
+       fill its cell so every button matches height + width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    min-height: 52px;
+
+    padding: 14px 22px;
+
+    border: 1.5px solid rgba(255, 255, 255, .25);
+    border-radius: 50px;
+
+    /* CHANGED: subtle glassmorphism — soft translucent fill,
+       blurred backdrop and a faint inner highlight instead of
+       the flat tinted-red fill used before */
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, .10),
+        rgba(139, 30, 30, .18)
+    );
+    color: #fff;
+
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .2px;
+    line-height: 1.3;
+    text-align: center;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* CHANGED: layered shadow -> soft ambient shadow + faint
+       red glow for a more premium look, still subtle at rest */
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, .18),
+        0 0 0 1px rgba(255, 255, 255, .04) inset;
+
+    transition: background .35s ease, transform .3s ease,
+        box-shadow .35s ease, border-color .3s ease;
+}
+
+.hero-product-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    /* CHANGED: slightly larger lift + richer glow on hover */
+    transform: translateY(-4px);
+    box-shadow:
+        0 14px 30px rgba(139, 30, 30, .45),
+        0 0 0 1px rgba(255, 255, 255, .08) inset;
+}
+
+.hero-product-btn:focus-visible {
+    outline: 2px solid #ff8080;
+    outline-offset: 2px;
+}
+
+.hero-product-btn:active {
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   HERO QUOTATION BUTTON (large, primary)
+===================================================== */
+
+.hero-quote-btn {
+    display: inline-block;
+
+    /* CHANGED: CTA now follows the description directly, so
+       margin-top is handled by .hero-description's margin-bottom
+       instead of being duplicated here */
+    margin-top: 0;
+
+    /* CHANGED: slightly larger padding + a faint red border
+       ring to make the CTA feel more prominent than before */
+    padding: 19px 56px;
+
+    border: 1.5px solid rgba(255, 255, 255, .18);
+    border-radius: 50px;
+
+    background: var(--primary);
+    color: #fff;
+
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    /* CHANGED: stronger, warmer glow so the CTA visually
+       outranks the outline-style product buttons above it */
+    box-shadow:
+        0 14px 34px rgba(139, 30, 30, .5),
+        0 0 0 4px rgba(139, 30, 30, .12);
+
+    transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+
+.hero-quote-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow:
+        0 18px 40px rgba(139, 30, 30, .55),
+        0 0 0 4px rgba(139, 30, 30, .18);
+}
+
+.hero-quote-btn:active {
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   SLIDER BUTTONS
+===================================================== */
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 58px;
+    height: 58px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 50, 50, .18);
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+    cursor: pointer;
+
+    transition: .3s;
+
+    z-index: 15;
+
+    font-size: 20px;
+}
+
+.slider-btn:hover {
+    background: #ff3232;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.left-btn {
+    left: 25px;
+}
+
+.right-btn {
+    right: 25px;
+}
+
+
+/* =====================================================
+   DOTS
+===================================================== */
+
+.slider-dots {
+    position: absolute;
+
+    bottom: 28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 12px;
+
+    z-index: 20;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+    border: 2px solid #fff;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.dot.active {
+    background: #ff3232;
+    border-color: #ff3232;
+    transform: scale(1.2);
+}
+
+
+/* =====================================================
+   SVG BORDER
+===================================================== */
+
+.hero-border {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.border-path {
+    fill: none;
+
+    stroke: #ff3232;
+    stroke-width: 3;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    filter:
+        drop-shadow(0 0 6px #ff3232)
+        drop-shadow(0 0 12px #ff3232);
+
+    stroke-dasharray: 180 2300;
+
+    animation: borderRun 6s linear infinite;
+}
+
+@keyframes borderRun {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -2480;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:992px) {
+
+    .hero-container {
+        width: 97%;
+        height: 520px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .slider-btn {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+/* --------------------------------------------------------
+   TABLET (768px - 1023px): "2 over 1" layout.
+   First row: Structural + Building (2 equal columns).
+   Second row: Cladding, spanning full width but width-matched
+   to the row-1 buttons and centered.
+-------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .hero-product-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 16px;
+        max-width: 520px;
+    }
+
+    /* 3rd button (Cladding) drops to its own centered row */
+    .hero-product-btn:nth-child(3) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        /* Matches the width of a single column above so all
+           three buttons stay visually identical in size */
+        width: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width:768px) {
+
+    .hero-section {
+        /* CHANGED: kept real side/bottom padding (instead of
+           letting it collapse to 0) so ~20-30px of page shows
+           around the hero on every mobile size and the animated
+           SVG border stays fully visible */
+        padding: 80px 16px 24px;
+    }
+
+    .hero-container {
+        /* CHANGED: swapped the fixed aspect-ratio for a min-height.
+           A fixed aspect-ratio combined with overflow:hidden was
+           clipping the top of the title whenever the stacked
+           content (title + line + desc + CTA + products) ran
+           taller than the ratio allowed. min-height lets the box
+           grow with its content instead of cropping it, while
+           still giving the background image a tall, spacious area. */
+        height: auto;
+        min-height: 620px;
+        width: 100%;
+    }
+
+    .hero-overlay {
+        /* CHANGED: align from the top with real padding instead of
+           forcing vertical centering, which could push the first
+           line of the title above the visible box on short phones.
+           Extra bottom padding keeps the stack clear of the dots. */
+        justify-content: flex-start;
+        padding: 34px 20px 44px;
+    }
+
+    .hero-title {
+        /* CHANGED: reduced further (was 2rem) so the full two-line
+           heading always stays inside the visible frame */
+        font-size: 1.65rem;
+        line-height: 1.3;
+    }
+
+    .hero-line {
+        width: 70px;
+        margin: 16px auto;
+    }
+
+    .hero-description {
+        font-size: .92rem;
+        line-height: 1.6;
+        /* CHANGED: clear gap before the primary CTA */
+        margin-bottom: 22px;
+    }
+
+    .hero-quote-btn {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 14px 36px;
+        border-radius: 50px;
+        font-size: .95rem;
+        width: 88%;
+    }
+
+    .hero-mini-divider {
+        margin: 22px auto 12px;
+    }
+
+    .hero-explore-label {
+        font-size: .78rem;
+        margin-bottom: 14px;
+    }
+
+    /* --------------------------------------------------
+       MOBILE (<768px): 3 buttons stacked vertically.
+       Width 80-85% of the container, height 48-52px, and a
+       slightly smaller (non-pill) radius so they read clearly
+       as the *secondary* action set beneath the CTA.
+    -------------------------------------------------- */
+    .hero-product-buttons {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        gap: 12px;
+        width: 82%;
+        max-width: 320px;
+    }
+
+    .hero-product-btn:nth-child(3) {
+        /* Reset the tablet-only centering override */
+        grid-column: auto;
+        justify-self: stretch;
+        width: 100%;
+    }
+
+    .hero-product-btn {
+        padding: 0 18px;
+        font-size: .82rem;
+        min-height: 48px;
+        max-height: 52px;
+        /* CHANGED: smaller, softer radius (was the full 50px pill)
+           to visually distinguish these from the primary CTA */
+        border-radius: 14px;
+    }
+
+    .slider-btn {
+        display: none;
+    }
+}
+
+@media (max-width:480px) {
+
+    .hero-section {
+        /* CHANGED: previously collapsed to 0 side/bottom padding,
+           which stretched the banner edge-to-edge and hid the
+           animated border. A slim 12-20px margin keeps the border
+           and rounded corners visible on the smallest phones too. */
+        padding: 72px 12px 20px;
+    }
+
+    .hero-container {
+        /* CHANGED: kept a small radius instead of removing it
+           entirely, so the rounded animated border still reads
+           as a "card" rather than a flush, edge-to-edge banner */
+        border-radius: 14px;
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   THEME VARIABLES
+===================================================== */
+
+/* Dark Theme (Dark Grey) */
+.dark-theme {
+    --bg-color: #1d2128;          /* page background */
+    --card-bg: #2a2f38;           /* hero container */
+    --hero-overlay: linear-gradient(
+        rgba(29,33,40,.55),
+        rgba(29,33,40,.55)
+    );
+}
+
+/* Light Theme */
+.light-theme {
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --hero-overlay: linear-gradient(
+        rgba(255,255,255,.22),
+        rgba(255,255,255,.22)
+    );
+}

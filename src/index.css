@@ -1,0 +1,279 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap");
+
+/* ==========================================
+   CSS VARIABLES
+========================================== */
+
+:root{
+
+    --primary:#8B1E1E;
+    --primary-dark:#731919;
+
+    --dark-bg:#1d2128;
+    --dark-card:#2a2f38;
+
+    --navbar-bg:#222831;
+    --footer-bg:#222831;
+
+    --charcoal:#1d2128;
+    --charcoal-light:#2a2f38;
+
+    --light-bg:#f8f9fa;
+    --light-card:#ffffff;
+
+    --text-light:#f8f9fa;
+    --text-dark:#141414;
+
+    --border-light:#e5e7eb;
+    --border-dark:#3a404a;
+
+    --transition:.3s ease;
+
+    --font-heading:"Manrope", sans-serif;
+    --font-body:"Inter", sans-serif;
+
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:var(--font-body);
+
+    overflow-x:hidden;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+
+}
+
+/* ==========================================
+   THEME
+========================================== */
+
+.light-theme{
+
+    background:var(--light-bg);
+    color:var(--text-dark);
+
+}
+
+.dark-theme{
+
+    background:var(--dark-bg);
+    color:var(--text-light);
+
+}
+
+/* ==========================================
+   COMMON ELEMENTS
+========================================== */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+section{
+
+    scroll-margin-top:90px;
+
+}
+
+.container{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+h1,h2,h3,h4,h5,h6{
+
+    font-family:var(--font-heading);
+
+    font-weight:800;
+
+}
+
+.section-heading{
+
+    font-family:var(--font-heading);
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    letter-spacing:-1px;
+
+}
+
+.section-subtitle{
+
+    font-size:1.1rem;
+
+    color:#6b7280;
+
+}
+
+.dark-theme .section-subtitle{
+
+    color:#d1d5db;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   UTILITIES
+========================================== */
+
+.text-primary{
+
+    color:var(--primary)!important;
+
+}
+
+.bg-primary{
+
+    background:var(--primary)!important;
+
+}
+
+.shadow-soft{
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.rounded-xl{
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f1f1f1;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:991px){
+
+    .section-heading{
+
+        font-size:2.5rem;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .section-heading{
+
+        font-size:2rem;
+
+    }
+
+}

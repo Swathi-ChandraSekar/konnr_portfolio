@@ -1,0 +1,251 @@
+/* ==========================
+   ABOUT SECTION
+========================== */
+
+.about-section{
+    padding:90px 0;
+    transition:.35s ease;
+}
+
+/* Theme */
+
+.dark-theme .about-section{
+    background:var(--dark-bg);
+    color:#fff;
+}
+
+.light-theme .about-section{
+    background:#fff;
+    color:#222;
+}
+
+/* Heading + underline wrapper: centers both as a unit so the
+   underline always lines up under the heading text, matching
+   the centered treatment used in the Hero section. */
+.about-heading-wrap{
+    text-align:center;
+    margin-bottom:36px;
+}
+
+/* Heading */
+
+.about-heading-wrap .section-heading{
+    font-size:3rem;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:0;
+    letter-spacing:-1px;
+}
+
+/* Premium red accent underline, same treatment as the
+   Hero section's ".hero-line" (deep red, rounded ends,
+   centered) so the two sections feel like one design system. */
+.about-heading-line{
+    width:90px;
+    height:4px;
+    /* CHANGED: centered with auto margins (was 0 0 30px, which
+       left it flush-left) so it sits directly under the heading */
+    margin:20px auto 0;
+    background:#8B1E1E;
+    border-radius:4px;
+}
+
+/* Description */
+
+.about-content{
+    max-width:1100px;
+}
+
+.about-text{
+    font-size:1.15rem;
+    line-height:2;
+    margin-bottom:24px;
+}
+
+.dark-theme .about-text{
+    color:#d1d5db;
+}
+
+.light-theme .about-text{
+    color:#555;
+}
+
+/* Cards */
+
+.about-card{
+    padding:35px;
+    border-radius:20px;
+    transition:.3s;
+}
+
+.dark-theme .about-card{
+    background:var(--dark-card);
+    border:1px solid var(--border-dark);
+}
+
+.light-theme .about-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 20px rgba(0,0,0,.04);
+}
+
+/* Titles */
+
+.card-title{
+    font-size:1.7rem;
+    font-weight:700;
+    margin-bottom:25px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* Offering Cards */
+
+.offering-card{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+
+    padding:22px;
+
+    border-radius:16px;
+
+    transition:.3s;
+    height:100%;
+}
+
+.dark-theme .offering-card{
+    background:var(--dark-card);
+    border:1px solid var(--border-dark);
+}
+
+.light-theme .offering-card{
+    background:#fafafa;
+    border:1px solid #ececec;
+}
+
+.offering-card:hover{
+    transform:translateY(-6px);
+}
+
+.offering-card svg{
+    font-size:1.8rem;
+    color:#dc2626;
+    flex-shrink:0;
+    margin-top:5px;
+}
+
+.offering-card h5{
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.offering-card p{
+    margin:0;
+    line-height:1.7;
+}
+
+.dark-theme .offering-card p{
+    color:#d1d5db;
+}
+
+.light-theme .offering-card p{
+    color:#555;
+}
+
+/* List */
+
+.about-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.about-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+
+    margin-bottom:18px;
+
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.about-list svg{
+    color:#dc2626;
+    margin-top:4px;
+    flex-shrink:0;
+}
+
+/* Vision */
+
+.vision-text{
+    border-left:4px solid #dc2626;
+    padding-left:18px;
+    margin-top:20px;
+    font-style:italic;
+    line-height:1.9;
+}
+
+.dark-theme .vision-text{
+    color:#d1d5db;
+}
+
+.light-theme .vision-text{
+    color:#555;
+}
+
+/* Responsive */
+
+@media(max-width:991px){
+
+    .about-heading-wrap .section-heading{
+        font-size:2.5rem;
+    }
+
+    .about-card{
+        padding:28px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .about-section{
+        padding:70px 0;
+    }
+
+    .about-heading-wrap .section-heading{
+        font-size:2rem;
+    }
+
+    .about-heading-wrap{
+        margin-bottom:28px;
+    }
+
+    .about-heading-line{
+        width:70px;
+        margin:14px auto 0;
+    }
+
+    .card-title{
+        font-size:1.4rem;
+    }
+
+    .about-text{
+        font-size:1rem;
+        line-height:1.8;
+    }
+
+    .offering-card{
+        padding:18px;
+    }
+
+    .offering-card svg{
+        font-size:1.5rem;
+    }
+
+}

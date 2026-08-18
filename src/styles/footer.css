@@ -1,0 +1,42 @@
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer-section{
+
+    padding:32px 0;
+
+    text-align:center;
+
+    font-size:.95rem;
+
+    transition:background-color var(--transition), color var(--transition), border-color var(--transition);
+
+}
+
+.dark-theme .footer-section{
+
+    background:var(--footer-bg);
+    color:#d1d5db;
+
+    border-top:1px solid var(--border-dark);
+
+}
+
+.light-theme .footer-section{
+
+    background:var(--light-card);
+    color:#555;
+
+    border-top:1px solid var(--border-light);
+
+}
+
+@media(max-width:768px){
+
+    .footer-section{
+        padding:24px 0;
+        font-size:.85rem;
+    }
+
+}
