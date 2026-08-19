@@ -6,23 +6,17 @@ import bannerImgMobile from "../assets/hero3-mobile.jpeg";
 /* ============================================================
    PRODUCT IMAGE MAP — Claddings & Architectural Blocks
    ------------------------------------------------------------
-   Breeze Blocks already has a real product photo (cropped from
-   the reference imagery supplied for this project). The other
-   two products use a generated placeholder graphic at
-   src/assets/products/<name>.jpg until real photography is
-   added — drop a real photo in the same filename/location to
-   go live, no other code changes required.
+   Real product photos, one per product, sourced from
+   src/assets/products/.
    ============================================================ */
 
 // 1. Concrete Wall Claddings
-// TODO: replace with an actual concrete wall cladding photograph.
 import claddingImage from "../assets/products/concrete-cladding.jpg";
 
-// 2. Breeze Blocks — actual product photo
+// 2. Breeze Blocks
 import breezeBlockImage from "../assets/products/breeze-block.jpg";
 
 // 3. Paver Blocks
-// TODO: replace with an actual paver block photograph.
 import paverBlockImage from "../assets/products/paver-block.jpg";
 
 function Cladding() {

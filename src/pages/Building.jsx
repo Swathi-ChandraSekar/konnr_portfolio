@@ -6,33 +6,20 @@ import bannerImgMobile from "../assets/hero2-mobile.jpeg";
 /* ============================================================
    PRODUCT IMAGE MAP — Building & Architectural Utilities
    ------------------------------------------------------------
-   Every entry below currently points to a placeholder graphic
-   generated at src/assets/products/<name>.jpg so the page never
-   ships with a broken import or an unrelated stock photo.
-
-   To go live with real photography, simply drop a real photo
-   in the same filename/location (or update the import path) —
-   no other code changes are required.
+   Real product photos, one per product, sourced from
+   src/assets/products/.
    ============================================================ */
 
 // 1. Commercial & Industrial PEB Construction
-// TODO: replace with an actual PEB / industrial warehouse / factory
-// construction photograph.
 import pebImage from "../assets/products/peb-construction.jpg";
 
 // 2. Residential Precast Homes
-// TODO: replace with an actual precast / modular residential
-// construction photograph.
 import precastHomeImage from "../assets/products/precast-home.jpg";
 
 // 3. MS (Mild Steel) Kiosks
-// TODO: replace with an actual MS kiosk / security cabin / site
-// office photograph.
 import msKioskImage from "../assets/products/ms-kiosk.jpg";
 
 // 4. Precast Home Utilities — Wash Basins & Kitchen Countertops
-// TODO: replace with an actual precast wash basin / concrete
-// countertop photograph.
 import washBasinImage from "../assets/products/precast-wash-basin.jpg";
 
 function Building() {
