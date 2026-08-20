@@ -9,6 +9,7 @@ import { openWhatsAppQuotation } from "../utils/whatsapp";
 function ProductPage({
   bannerImage,
   bannerImageMobile,
+  bannerClassName,
   title,
   subtitle,
   sectionHeading,
@@ -49,7 +50,13 @@ function ProductPage({
           BANNER (image + title)
       ========================== */}
 
-      <section className="product-banner">
+      <section
+        className={
+          bannerClassName
+            ? `product-banner ${bannerClassName}`
+            : "product-banner"
+        }
+      >
         <picture>
           {bannerImageMobile && (
             <source

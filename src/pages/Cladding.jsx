@@ -1,7 +1,9 @@
 import ProductPage from "../components/ProductPage";
 
 import bannerImg from "../assets/hero3.jpeg";
-import bannerImgMobile from "../assets/hero3-mobile.jpeg";
+// NOTE: "hero3-mobile.jpeg" does not exist in the project's assets.
+// Reusing hero3.jpeg for mobile avoids a broken import/build failure.
+import bannerImgMobile from "../assets/hero3.jpeg";
 
 /* ============================================================
    PRODUCT IMAGE MAP — Claddings & Architectural Blocks

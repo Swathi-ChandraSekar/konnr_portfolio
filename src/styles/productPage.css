@@ -38,6 +38,16 @@
     object-position:center;
 }
 
+/* Product Page 3 (Structural) — Hero 3 image is reused for both
+   desktop and mobile via the same source. On small screens, nudge
+   the focal point so the main subject stays visible instead of
+   being cropped by object-fit: cover. Scoped to this page only. */
+@media(max-width:768px){
+    .structural-banner .product-banner-img{
+        object-position:center 30%;
+    }
+}
+
 .product-banner-overlay{
     position:absolute;
     inset:0;
