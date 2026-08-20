@@ -10,8 +10,11 @@ import {
 
 import "../styles/about.css";
 
+import companyVideo from "../assets/company-video.mp4";
+
 function About() {
   return (
+    <>
     <section id="about" className="about-section py-5">
       <div className="container">
 
@@ -54,8 +57,40 @@ function About() {
           </p>
         </div>
 
+      </div>
+    </section>
+
+    {/* --------------------------------------------------------
+        COMPANY VIDEO
+        Sits between the About description and "Our Core
+        Offerings" only. Autoplay/muted/loop/inline so it starts
+        immediately with no user interaction and no visible
+        controls, matching the site's existing visual language
+        (rounded card, theme-aware background, same container
+        width as the rest of the About content).
+    -------------------------------------------------------- */}
+    <section className="about-section home-video-section pt-0">
+      <div className="container">
+        <div className="home-video-wrap">
+          <video
+            className="home-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src={companyVideo} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section className="about-section pt-0">
+      <div className="container">
+
         {/* Core Offerings */}
-        <div className="about-card mt-5" id="products">
+        <div className="about-card" id="products">
           <h3 className="card-title">
             Our Core Offerings
           </h3>
@@ -186,6 +221,7 @@ function About() {
 
       </div>
     </section>
+    </>
   );
 }
 

@@ -31,6 +31,7 @@ function Cladding() {
     },
     {
       image: breezeBlockImage,
+      fit: "contain",
       title: "Breeze Blocks",
       alt: "Decorative precast breeze blocks",
       description:

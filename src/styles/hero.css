@@ -631,8 +631,14 @@
 .light-theme {
     --bg-color: #f5f7fa;
     --card-bg: #ffffff;
+    /* CHANGED: was a WHITE wash (rgba(255,255,255,.22)), which
+       nearly erased the hero's white title/description/label text
+       against the light background. The hero text color itself is
+       unchanged (still white in both themes) — only the tint
+       direction is fixed so it darkens the image for legibility,
+       the same way the dark theme's overlay already does. */
     --hero-overlay: linear-gradient(
-        rgba(255,255,255,.22),
-        rgba(255,255,255,.22)
+        rgba(17,19,23,.45),
+        rgba(17,19,23,.45)
     );
 }
