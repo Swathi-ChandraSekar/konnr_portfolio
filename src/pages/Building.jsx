@@ -43,7 +43,7 @@ function Building() {
     {
       image: msKioskImage,
       fit: "contain",
-      title: "MS (Mild Steel) Kiosks",
+      title: "Tiny Kiosks",
       alt: "Mild steel security kiosk",
       description:
         "When you need a durable, quick-to-deploy structure for a compact footprint, our fabricated Mild Steel kiosks provide the perfect answer. Built with robust steel framing, these versatile units are ideal for security cabins, pop-up retail booths, or temporary site offices. They are engineered to withstand the elements and arrive ready for rapid on-site setup, ensuring immediate functionality.",

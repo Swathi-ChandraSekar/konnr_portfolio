@@ -73,7 +73,9 @@
 /* Description */
 
 .about-content{
-    max-width:1100px;
+    width:100%;
+    max-width:1000px;
+    margin:0 auto;
 }
 
 .about-text{
